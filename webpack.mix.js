@@ -69,5 +69,5 @@ mix.webpackConfig({
 
 if (mix.inProduction()) {
   mix.copyDirectory('resources/assets/js/libs', './public/js/libs')
-    .copyDirectory('resources/assets/img/favicon', './public/img/favicon')
+    .copyDirectory('resources/assets/img/favicon', './public/favicon')
 }
