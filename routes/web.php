@@ -29,7 +29,10 @@ Route::group(
     ],
     function ()
     {
-        Route::get('/', function () {
-            return view('welcome');
-        });
+
+        /**
+         * HomeController routes
+         */
+        Route::get('/', 'HomeController@index')->name('home');
+
     });
