@@ -1,15 +1,72 @@
-const mix = require('laravel-mix');
+const mix = require('laravel-mix')
+const SpritesmithPlugin = require('webpack-spritesmith')
+const fs = require('fs')
+const Dotenv = require('dotenv-webpack')
+const autoprefixer = require('autoprefixer')
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
+let getFiles = function (dir) {
+  return fs.readdirSync(dir).filter(file => {
+    return fs.statSync(`${dir}/${file}`).isFile()
+  })
+}
 
-mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+/* ============================= Other JS/Css ============================= */
+
+getFiles('resources/assets/js').forEach(function (filepath) {
+  mix.js('resources/assets/js/' + filepath, 'public/js')
+})
+
+getFiles('resources/assets/sass').forEach(function (filepath) {
+  mix.sass('resources/assets/sass/' + filepath, 'public/css')
+})
+
+/* ======================================================================== */
+/* ============================= Pages JS/Css ============================= */
+
+getFiles('resources/assets/js/pages').forEach(function (filepath) {
+  mix.js('resources/assets/js/pages/' + filepath, 'public/js/pages')
+})
+
+getFiles('resources/assets/sass/pages').forEach(function (filepath) {
+  mix.sass('resources/assets/sass/pages/' + filepath, 'public/css/pages')
+})
+
+/* ======================================================================== */
+
+mix.webpackConfig({
+  plugins: [
+    new SpritesmithPlugin({
+      src: {
+        cwd: path.resolve('resources/assets/img/sprites'),
+        glob: '*.png'
+      },
+      target: {
+        image: path.resolve('public/img/sprite/sprite.png'),
+        css: path.resolve('resources/assets/sass/sprite/sprite.sass')
+      },
+      apiOptions: {
+        cssImageRef: '/img/sprite/sprite.png'
+      },
+      spritesmithOptions: {
+        algorithm: 'binary-tree',
+        padding: 5
+      }
+
+    }),
+    new Dotenv()
+  ]
+})
+
+  .options({
+    processCssUrls: false,
+    postCss: [
+      autoprefixer
+    ]
+  })
+  .copy('resources/assets/img/*.*', './public/img/')
+  .version()
+  .browserSync(process.env.APP_URL)
+
+if (mix.inProduction()) {
+  mix.copyDirectory('resources/assets/img/favicon', './public/favicon')
+}

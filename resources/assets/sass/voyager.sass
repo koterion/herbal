@@ -1,0 +1,75 @@
+.language-selector
+  .btn.btn-primary
+    background: #ccc
+
+
+.language-selector .btn-primary.active,
+.language-selector .btn-primary:active,
+.language-selector .btn-primary:hover,
+.language-selector .open > .btn-primary.dropdown-toggle
+  color: #fff
+  background-color: #286090
+  border-color: #204d74
+
+.except__num
+  margin-top: 10px
+  display: inline-block
+  width: auto
+
+.form-control.error
+  border-color: red
+
+.graph
+  height: 250px
+  display: flex
+  justify-content: flex-start
+  align-items: flex-end
+  padding-bottom: 20px
+  padding-top: 30px
+
+  > div
+    position: relative
+
+    .name
+      position: absolute
+      top: 105%
+      left: 50%
+      transform: translateX(-50%)
+
+    .num
+      position: absolute
+      bottom: 105%
+      left: 50%
+      transform: translateX(-50%)
+
+  &__row
+    margin: 0 10px
+    max-width: 100px
+    transition: all 1s
+    animation-name: width
+    animation-duration: 3s
+    animation-fill-mode: forwards
+
+  &__all
+    background: #000
+    max-width: 30px
+
+  &__border
+    background: #000
+    margin: 0
+    max-width: 1px
+    height: 100%
+
+@keyframes width
+  from
+    width: 0
+  to
+    width: 100%
+    flex-grow: 1
+
+.alerts + .clearfix.container-fluid.row
+  display: flex
+  flex-wrap: wrap
+
+  .widget
+    height: 100%
