@@ -1,0 +1,119 @@
+/*  ========================= Devices ========================= */
+
+$desktop: 1230px
+$laptop: 1150px
+$pad: 992px
+$padmini: 768px
+$mobile: 568px
+
+@import url("~sanitize.css")
+@import "fonts"
+@import "mixing"
+
+// Шрифт по всему сайту будет уменьшаться
+// в зависимости от размера экрана
+
+html
+  font-size: 10px
+  @media (max-width: $desktop)
+    font-size: 9.5px
+
+  @media (max-width: $laptop)
+    font-size: 9px
+
+  @media (max-width: $pad)
+    font-size: 8.5px
+
+  @media (max-width: $padmini)
+    font-size: 8px
+
+  @media (max-width: $mobile)
+    font-size: 7.5px
+
+  @media (min-width: $pad)
+    *
+      -webkit-user-select: text
+      user-select: none
+
+body
+  box-sizing: border-box
+  font-size: 1.4rem
+  line-height: 1.4
+  color: $text
+  font-family: $primary
+  background: $bg-body
+
+  ul,
+  ol
+    padding: 0
+    margin: 0
+    list-style: none
+
+  a
+    text-decoration: none
+
+  a,
+  button,
+  input[type="submit"]
+    +mx-transition(.5s)
+
+    &:hover
+      +mx-transition(.25s)
+
+    &:active
+      +mx-transition(.15s)
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p
+    font-weight: normal
+    margin: 0
+
+#wrapper
+  max-width: 100%
+  min-width: 320px
+  overflow: hidden
+  min-height: 100vh
+  position: relative
+
+  .site-content
+    min-height: 40vh
+
+    &.mr
+      margin-top: 5rem
+
+.box
+  +mx-box()
+
+a
+  color: #000
+
+  &:hover
+    color: #939393
+
+.cntr
+  &-arrow
+    border-top-color: $input-c
+
+  &-ls
+    background-color: $cntr-bg
+    border: 1px solid $cntr-border-color
+    border-top: none
+
+    ul
+      &::-webkit-scrollbar
+        width: 10px
+        background: $cntr-scroll-bar
+
+      &::-webkit-scrollbar-thumb
+        background-color: $cntr-scroll-trumb
+
+    li
+      color: $cntr-color
+
+      &:hover
+        color: $cntr-color-hover

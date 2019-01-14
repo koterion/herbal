@@ -68,6 +68,5 @@ mix.webpackConfig({
   .browserSync(process.env.APP_URL)
 
 if (mix.inProduction()) {
-  mix.copyDirectory('resources/assets/js/libs', './public/js/libs')
-    .copyDirectory('resources/assets/img/favicon', './public/favicon')
+  mix.copyDirectory('resources/assets/img/favicon', './public/favicon')
 }
