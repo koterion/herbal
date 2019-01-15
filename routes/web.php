@@ -11,24 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
 Route::group(
     [
-        'prefix'     => LaravelLocalization::setLocale(),
+        'prefix' => LaravelLocalization::setLocale(),
         'middleware' => [
             'localize',
         ],
     ],
-    function ()
-    {
+    function () {
 
         /**
          * HomeController routes
