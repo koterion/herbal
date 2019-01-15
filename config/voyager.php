@@ -17,7 +17,7 @@ return [
         // Set `namespace` to a class to override auth user model.
         // However make sure the appointed class must ready to use before installing voyager.
         // Otherwise `php artisan voyager:install` will fail with class not found error.
-        'namespace'                    => null,
+        'namespace'                    => App\User::class,
         'default_avatar'               => 'users/default.png',
         'redirect'                     => '/admin',
     ],
@@ -32,7 +32,7 @@ return [
     */
 
     'controllers' => [
-        'namespace' => 'TCG\\Voyager\\Http\\Controllers',
+        'namespace' => 'App\\Http\\Controllers\\Voyager',
     ],
 
     /*
@@ -96,7 +96,15 @@ return [
 
     'database' => [
         'tables' => [
-            'hidden' => ['migrations', 'data_rows', 'data_types', 'menu_items', 'password_resets', 'permission_role', 'settings'],
+            'hidden' => [
+                'migrations',
+                'data_rows',
+                'data_types',
+                'menu_items',
+                'password_resets',
+                'permission_role',
+                'settings',
+            ],
         ],
     ],
 
@@ -129,11 +137,7 @@ return [
         /*
          * Select languages that are supported.
          */
-        'locales' => [
-            'en',
-            'ru',
-            'ua',
-        ],
+        'locales' => array_keys(config('laravellocalization.supportedLocales')),
     ],
 
     /*
