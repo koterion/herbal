@@ -37,23 +37,28 @@
         "browser-sync": "^2.26.3",
         "browser-sync-webpack-plugin": "^2.2.2",
         "cross-env": "^5.2.0",
-        "laravel-mix": "^4.0.13",
+        "laravel-mix": "^4.0.14",
         "lodash": "^4.17.11",
-        "sass": "^1.16.0",
+        "sass": "^1.16.1",
         "sass-loader": "^7.1.0",
         "vue-template-compiler": "^2.5.22"
     },
     "dependencies": {
-        "autoprefixer": "^9.4.5",
+        "autoprefixer": "^9.4.6",
         "chart.js": "^2.7.3",
         "child_process": "^1.0.2",
         "dotenv": "^6.2.0",
-        "dotenv-webpack": "^1.6.0",
+        "dotenv-webpack": "^1.7.0",
         "express": "^4.16.4",
         "file-system": "^2.2.2",
-        "npm": "^6.5.0",
         "sanitize.css": "^8.0.0",
         "socket.io": "^2.2.0",
-        "webpack-spritesmith": "^0.5.4"
+        "socket.io-client": "^2.2.0",
+        "vue": "^2.5.22",
+        "vue-headful": "^2.0.1",
+        "vue-router": "^3.0.2",
+        "vuex": "^3.1.0",
+        "webpack-shell-plugin": "^0.5.0",
+        "webpack-spritesmith": "^1.0.0"
     }
 }

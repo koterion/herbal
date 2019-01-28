@@ -21,17 +21,6 @@ getFiles('resources/assets/sass').forEach(function (filepath) {
 })
 
 /* ======================================================================== */
-/* ============================= Pages JS/Css ============================= */
-
-getFiles('resources/assets/js/pages').forEach(function (filepath) {
-  mix.js('resources/assets/js/pages/' + filepath, 'public/js/pages')
-})
-
-getFiles('resources/assets/sass/pages').forEach(function (filepath) {
-  mix.sass('resources/assets/sass/pages/' + filepath, 'public/css/pages')
-})
-
-/* ======================================================================== */
 
 mix.webpackConfig({
   plugins: [

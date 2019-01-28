@@ -27,6 +27,7 @@ Route::group(
         /**
          * HomeController routes
          */
-        Route::get('/', 'HomeController@index')->name('home');
-
+        Route::get('/{any}',function (){
+            return view('index');
+        })->where('any', '.*');
     });

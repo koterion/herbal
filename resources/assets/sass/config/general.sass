@@ -9,6 +9,7 @@ $mobile: 568px
 @import url("~sanitize.css")
 @import "fonts"
 @import "mixing"
+@import "color"
 
 // Шрифт по всему сайту будет уменьшаться
 // в зависимости от размера экрана
@@ -86,34 +87,8 @@ body
     &.mr
       margin-top: 5rem
 
-.box
-  +mx-box()
-
 a
   color: #000
 
   &:hover
     color: #939393
-
-.cntr
-  &-arrow
-    border-top-color: $input-c
-
-  &-ls
-    background-color: $cntr-bg
-    border: 1px solid $cntr-border-color
-    border-top: none
-
-    ul
-      &::-webkit-scrollbar
-        width: 10px
-        background: $cntr-scroll-bar
-
-      &::-webkit-scrollbar-thumb
-        background-color: $cntr-scroll-trumb
-
-    li
-      color: $cntr-color
-
-      &:hover
-        color: $cntr-color-hover
